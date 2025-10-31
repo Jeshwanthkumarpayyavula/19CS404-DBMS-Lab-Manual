@@ -1,7 +1,5 @@
 # Experiment 6: Joins
-NAME : NABISHA A
 
-REG NO : 212223060177
 ## AIM
 To study and implement different types of joins.
 
