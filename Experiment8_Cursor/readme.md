@@ -98,7 +98,7 @@ END;
 ```
 
 **Output:**  
-The program should display the employee details or an error message.
+The program should display the employee details or an error message
 
 ![image](https://github.com/user-attachments/assets/420e25ee-9a22-4def-945e-0494dee9aed2)
 
