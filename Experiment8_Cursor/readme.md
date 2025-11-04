@@ -78,29 +78,34 @@ END;
 
 #### Program:
 ```
+SET SERVEROUTPUT ON;
+
 DECLARE
-   CURSOR emp_cur IS
-      SELECT emp_name, designation FROM employees;
-   v_name employees.emp_name%TYPE;
-   v_desg employees.designation%TYPE;
+    CURSOR emp_cur IS
+        SELECT first_name, job_id FROM hr.employees;
+
+    v_name hr.employees.first_name%TYPE;
+    v_job hr.employees.job_id%TYPE;
 BEGIN
-   OPEN emp_cur;
-   LOOP
-      FETCH emp_cur INTO v_name, v_desg;
-      EXIT WHEN emp_cur%NOTFOUND;
-      DBMS_OUTPUT.PUT_LINE('Name: ' || v_name || ', Designation: ' || v_desg);
-   END LOOP;
-   CLOSE emp_cur;
+    OPEN emp_cur;
+    LOOP
+        FETCH emp_cur INTO v_name, v_job;
+        EXIT WHEN emp_cur%NOTFOUND;
+        DBMS_OUTPUT.PUT_LINE('Name: ' || v_name || ', Job ID: ' || v_job);
+    END LOOP;
+    CLOSE emp_cur;
 EXCEPTION
-   WHEN OTHERS THEN
-      DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
 END;
+/
+
 ```
 
 **Output:**  
 The program should display the employee details or an error message
 
-![image](https://github.com/user-attachments/assets/420e25ee-9a22-4def-945e-0494dee9aed2)
+<img width="1613" height="927" alt="image" src="https://github.com/user-attachments/assets/e1c81ae9-c54a-45f9-9f6e-7740e65b9fad" />
 
 
 ---
@@ -121,32 +126,43 @@ The program should display the employee details or an error message
 
 #### Program:
 ```
+SET SERVEROUTPUT ON;
+
 DECLARE
+   -- Parameterized cursor to fetch employees within a salary range
    CURSOR sal_cursor(min_sal NUMBER, max_sal NUMBER) IS
-      SELECT emp_name, salary FROM employees WHERE salary BETWEEN min_sal AND max_sal;
-   v_name employees.emp_name%TYPE;
-   v_salary employees.salary%TYPE;
+      SELECT first_name || ' ' || last_name AS full_name, salary
+      FROM hr.employees
+      WHERE salary BETWEEN min_sal AND max_sal;
+
    found BOOLEAN := FALSE;
 BEGIN
-   FOR rec IN sal_cursor(45000, 70000) LOOP
-      DBMS_OUTPUT.PUT_LINE('Name: ' || rec.emp_name || ', Salary: ' || rec.salary);
+   -- Iterate over cursor records
+   FOR rec IN sal_cursor(4500, 7000) LOOP
+      DBMS_OUTPUT.PUT_LINE('Name: ' || rec.full_name || ', Salary: ' || rec.salary);
       found := TRUE;
    END LOOP;
+
+   -- If no records found, raise exception
    IF NOT found THEN
       RAISE NO_DATA_FOUND;
    END IF;
+
 EXCEPTION
    WHEN NO_DATA_FOUND THEN
       DBMS_OUTPUT.PUT_LINE('No employees in the given salary range.');
    WHEN OTHERS THEN
       DBMS_OUTPUT.PUT_LINE('Unexpected error: ' || SQLERRM);
 END;
+/
+
 ```
 
 **Output:**  
 The program should display the employee details within the specified salary range or an error message if no data is found.
 
-![image](https://github.com/user-attachments/assets/61f49c12-dcc3-4712-a366-e917595623f0)
+<img width="1410" height="933" alt="image" src="https://github.com/user-attachments/assets/f23d6838-1a51-4e81-a905-0f7167af6eaf" />
+
 
 
 ---
@@ -188,7 +204,7 @@ END;
 **Output:**  
 The program should display employee names with their department numbers or the appropriate error message if no data is found.
 
-![image](https://github.com/user-attachments/assets/a208f8c1-0913-482c-a283-b586626e5140)
+<img width="1664" height="930" alt="image" src="https://github.com/user-attachments/assets/b71ccaf6-8be8-45bb-8c07-2e87477d1103" />
 
 
 ---
@@ -237,7 +253,8 @@ END;
 **Output:**  
 The program should display employee records or the appropriate error message if no data is found.
 
-![image](https://github.com/user-attachments/assets/65664ead-e13d-4ad4-a9df-4e2bae9c8012)
+<img width="1417" height="925" alt="image" src="https://github.com/user-attachments/assets/a9804bbd-1dbe-4f37-b609-731b053d6c7f" />
+
 
 
 ---
@@ -283,7 +300,8 @@ END;
 **Output:**  
 The program should update employee salaries and display a message, or it should display an error message if no data is found.
 
-![image](https://github.com/user-attachments/assets/a3e41b43-317a-4ff1-ae8b-85f80a7ff8ad)
+<img width="1389" height="944" alt="image" src="https://github.com/user-attachments/assets/641a2e41-bceb-47ac-8d4c-25c475b43f64" />
+
 
 
 ---
