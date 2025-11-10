@@ -64,21 +64,21 @@ Key Differences:
 Square of 6 is 36
 
 ```
-CREATE OR REPLACE PROCEDURE find_square(p_number IN NUMBER) IS
-    v_square NUMBER;
+CREATE OR REPLACE PROCEDURE find_square(num IN NUMBER)
+IS
+   result NUMBER;
 BEGIN
-    v_square := p_number * p_number;
-    DBMS_OUTPUT.PUT_LINE('Square of ' || p_number || ' is ' || v_square);
+   result := num * num;
+   DBMS_OUTPUT.PUT_LINE('Square of ' || num || ' is ' || result);
 END;
 /
-SET SERVEROUTPUT ON;
 
-BEGIN
-    find_square(6);
-END;
-/
+-- Execution
+EXEC find_square(6);
+
 ```
-![image](https://github.com/user-attachments/assets/d6436d5d-b540-43d7-a396-2a8debfbb20a)
+<img width="469" height="118" alt="image" src="https://github.com/user-attachments/assets/164b22c8-e2e9-4506-9a97-aeb778a4acb6" />
+
 
 ---
 
@@ -94,37 +94,22 @@ END;
 **Expected Output:**  
 Factorial of 5 is 120
 ```
-SET SERVEROUTPUT ON;
-
-
-CREATE OR REPLACE FUNCTION get_factorial(p_number IN NUMBER)
+CREATE OR REPLACE FUNCTION get_factorial(n IN NUMBER)
 RETURN NUMBER
 IS
-   v_result NUMBER := 1;
+   fact NUMBER := 1;
+   i NUMBER;
 BEGIN
-   IF p_number < 0 THEN
-      RETURN NULL;  
-   END IF;
-
-   FOR i IN 1..p_number LOOP
-      v_result := v_result * i;
+   FOR i IN 1..n LOOP
+      fact := fact * i;
    END LOOP;
-
-   RETURN v_result;
+   RETURN fact;
 END;
 /
-
-DECLARE
-   v_input NUMBER := 5;
-   v_output NUMBER;
-BEGIN
-   v_output := get_factorial(v_input);
-   DBMS_OUTPUT.PUT_LINE('Factorial of ' || v_input || ' is ' || v_output);
-END;
-/
+SELECT get_factorial(5) AS factorial FROM DUAL;
 ```
 
-![image](https://github.com/user-attachments/assets/1319e42f-c31c-49dd-8c20-1bb349322a54)
+<img width="828" height="255" alt="image" src="https://github.com/user-attachments/assets/64a69248-eca4-4bcf-9d15-453d781ead61" />
 
 ---
 
@@ -140,27 +125,22 @@ END;
 12 is Even
 
 ```
-SET SERVEROUTPUT ON;
-
-
-CREATE OR REPLACE PROCEDURE check_even_odd(p_number IN NUMBER) IS
+CREATE OR REPLACE PROCEDURE check_even_odd(num IN NUMBER)
+IS
 BEGIN
-  
-   IF MOD(p_number, 2) = 0 THEN
-      DBMS_OUTPUT.PUT_LINE(p_number || ' is Even');
+   IF MOD(num, 2) = 0 THEN
+      DBMS_OUTPUT.PUT_LINE(num || ' is Even');
    ELSE
-      DBMS_OUTPUT.PUT_LINE(p_number || ' is Odd');
+      DBMS_OUTPUT.PUT_LINE(num || ' is Odd');
    END IF;
 END;
 /
+EXEC check_even_odd(12);
 
-BEGIN
-   check_even_odd(12);  
-END;
-/
 ```
 
-![image](https://github.com/user-attachments/assets/1275528f-e95b-4523-8f3c-90f065a73b94)
+<img width="500" height="130" alt="image" src="https://github.com/user-attachments/assets/dbd8dfa6-2b46-4cd3-8244-5e659b47d851" />
+
 
 ---
 
@@ -177,33 +157,24 @@ END;
 Reversed number of 1234 is 4321
 
 ```
-CREATE OR REPLACE FUNCTION reverse_number(p_number IN NUMBER)
-RETURN NUMBER IS
-    v_number     NUMBER := p_number;
-    v_reversed   NUMBER := 0;
-    v_digit      NUMBER;
+CREATE OR REPLACE FUNCTION reverse_number(n IN NUMBER)
+RETURN NUMBER
+IS
+   rev NUMBER := 0;
+   temp NUMBER := n;
 BEGIN
-    WHILE v_number > 0 LOOP
-        v_digit := MOD(v_number, 10);
-        v_reversed := (v_reversed * 10) + v_digit;
-        v_number := TRUNC(v_number / 10);
-    END LOOP;
-    RETURN v_reversed;
+   WHILE temp > 0 LOOP
+      rev := (rev * 10) + MOD(temp, 10);
+      temp := FLOOR(temp / 10);
+   END LOOP;
+   RETURN rev;
 END;
 /
-SET SERVEROUTPUT ON;
-
-DECLARE
-    v_input    NUMBER := 1234;
-    v_result   NUMBER;
-BEGIN
-    v_result := reverse_number(v_input);
-    DBMS_OUTPUT.PUT_LINE('Reversed number of ' || v_input || ' is ' || v_result);
-END;
-/
+SELECT reverse_number(1234) AS reversed FROM DUAL;
 ```
 
-![image](https://github.com/user-attachments/assets/b08ddc4c-962a-4af3-b600-55a98927cc9a)
+<img width="569" height="161" alt="image" src="https://github.com/user-attachments/assets/fb225216-f99b-4151-8bf0-4d3637b2b3f0" />
+
 
 ---
 
@@ -224,23 +195,20 @@ Multiplication table of 5:
 5 x 10 = 50
 
 ```
-CREATE OR REPLACE PROCEDURE print_table(p_number IN NUMBER) IS
+CREATE OR REPLACE PROCEDURE print_table(num IN NUMBER)
+IS
 BEGIN
-    DBMS_OUTPUT.PUT_LINE('Multiplication table of ' || p_number || ':');
-    FOR i IN 1..10 LOOP
-        DBMS_OUTPUT.PUT_LINE(p_number || ' x ' || i || ' = ' || (p_number * i));
-    END LOOP;
+   DBMS_OUTPUT.PUT_LINE('Multiplication table of ' || num || ':');
+   FOR i IN 1..10 LOOP
+      DBMS_OUTPUT.PUT_LINE(num || ' x ' || i || ' = ' || (num * i));
+   END LOOP;
 END;
 /
-SET SERVEROUTPUT ON;
-
-BEGIN
-    print_table(5);
-END;
-/
+EXEC print_table(5);
 ```
 
-![image](https://github.com/user-attachments/assets/0ef9eca5-64dc-4cc4-a91b-218d48a989dc)
+<img width="436" height="360" alt="image" src="https://github.com/user-attachments/assets/ec4c6117-7546-4f12-90f2-ec6f6a992b06" />
+
 
 ## RESULT
 Thus, the PL/SQL programs using procedures and functions were written, compiled, and executed successfully.
