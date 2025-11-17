@@ -1,5 +1,6 @@
 # Experiment 5: Subqueries and Views
-
+## Name: Payyavula Jeshwanth Kumar
+## Reg.No: 212223240114
 ## AIM
 To study and implement subqueries and views.
 
