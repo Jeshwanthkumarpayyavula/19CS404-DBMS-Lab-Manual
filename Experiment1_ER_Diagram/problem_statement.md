@@ -1,5 +1,6 @@
 # ER Diagram Workshop – Submission Template
-
+## Name: Payyavula Jeshwanth Kumar
+## Reg.no: 212223240114
 ## Objective
 To understand and apply ER modeling concepts by creating ER diagrams for real-world applications.
 
