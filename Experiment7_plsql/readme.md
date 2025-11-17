@@ -49,7 +49,8 @@ BEGIN
 END;
 ```
 ## Output:
-![image](https://github.com/user-attachments/assets/1bc3a150-941a-4fd4-9808-819ff732fd15)
+<img width="856" height="447" alt="image" src="https://github.com/user-attachments/assets/eaf68d1e-ae13-4c21-a5d1-b177eaf1e3a7" />
+
 
 ## 2. Write a PL/SQL program to Calculate Sum of First N Natural Numbers
 
@@ -79,7 +80,8 @@ BEGIN
 END;
 ```
 ## Output:
-![image](https://github.com/user-attachments/assets/f7bc37f8-0155-4ee2-ba78-2873aed05fa3)
+<img width="793" height="440" alt="image" src="https://github.com/user-attachments/assets/4b8ff187-ca65-4f0d-b077-3730e5901b66" />
+
 
 ## 3. Write a PL/SQL program to generate Fibonacci series
 
@@ -117,7 +119,8 @@ BEGIN
 END;
 ```
 ## Output:
-![image](https://github.com/user-attachments/assets/27d45d8b-1201-45a8-b6c8-eabb7e9c0594)
+<img width="916" height="448" alt="image" src="https://github.com/user-attachments/assets/72db56ea-a70d-4654-81b9-036f6edb716c" />
+
 
 ## 4. Write a PL/SQL Program to display the number in Reverse Order
 
@@ -150,7 +153,8 @@ BEGIN
 END;
 ```
 ## Output:
-![image](https://github.com/user-attachments/assets/3196f759-ca57-493d-888a-d3d2f4904635)
+<img width="873" height="416" alt="image" src="https://github.com/user-attachments/assets/280fbf99-8045-4a3b-80eb-34aaa341246e" />
+
 
 ## 5. Write a PL/SQL program to find the largest of three numbers
 
@@ -185,10 +189,12 @@ BEGIN
 END;
 ```
 ## Output:
-![image](https://github.com/user-attachments/assets/101333eb-64a2-4a7c-9a20-3708e49e2d7a)
+<img width="746" height="438" alt="image" src="https://github.com/user-attachments/assets/c05254fe-f637-4bd2-a13b-2fa6191fa985" />
+
 
 ## RESULT
 Thus, the PL/SQL programs using variables, conditionals, and loops were executed successfully.
+
 
 
 
