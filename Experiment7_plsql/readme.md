@@ -1,4 +1,6 @@
 # Experiment 7: PL/SQL – Variables, Control Structures and Loops
+## Name: Payyavula Jeshwanth Kumar
+## Reg.No: 21222324014
 ## AIM
 To write and execute simple PL/SQL programs using variables, loops, and conditional statements.
 
@@ -187,5 +189,6 @@ END;
 
 ## RESULT
 Thus, the PL/SQL programs using variables, conditionals, and loops were executed successfully.
+
 
 
