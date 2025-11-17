@@ -1,5 +1,6 @@
 # Experiment 8: PL/SQL Cursor Programs
-
+## Name: Payyavula Jeshwanth Kumar
+## Reg.No: 21222324014
 ## AIM
 To write and execute PL/SQL programs using cursors and exception handling to manage runtime errors effectively and display appropriate messages.
 
