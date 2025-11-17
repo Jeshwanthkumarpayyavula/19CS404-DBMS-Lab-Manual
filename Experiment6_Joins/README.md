@@ -1,5 +1,6 @@
 # Experiment 6: Joins
-
+## Name: Payyavula Jeshwanth Kumar
+## Reg.No: 21222324014
 ## AIM
 To study and implement different types of joins.
 
